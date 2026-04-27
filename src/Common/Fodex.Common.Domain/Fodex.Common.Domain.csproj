@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Fodex.Common.Domain</RootNamespace>
+    <AssemblyName>Fodex.Common.Domain</AssemblyName>
+    <Description>Fodex - Common domain primitives (Entity, ValueObject, Result, Error, DomainEvent)</Description>
+  </PropertyGroup>
+
+</Project>

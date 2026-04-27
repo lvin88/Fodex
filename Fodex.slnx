@@ -15,7 +15,9 @@
   <Folder Name="/src/" />
   <Folder Name="/src/ApiGateway/" />
   <Folder Name="/src/Host/" />
-  <Folder Name="/src/Common/" />
+  <Folder Name="/src/Common/">
+    <Project Path="src/Common/Fodex.Common.Domain/Fodex.Common.Domain.csproj" />
+  </Folder>
   <Folder Name="/src/Modules/" />
 
   <!-- Tests -->

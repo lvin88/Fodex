@@ -257,5 +257,7 @@ dotnet_diagnostic.IDE0055.severity = warning  # Format ihlali
 dotnet_diagnostic.CS1591.severity = none
 # Test method isimleri daha serbest olabilir (MethodName_Should_DoSomething pattern)
 dotnet_diagnostic.CA1707.severity = none      # Underscore in method name
+dotnet_diagnostic.CA1716.severity = none
 # Test'lerde async Task yerine async void lazım olabilir nadir
 dotnet_diagnostic.VSTHRD100.severity = warning
+

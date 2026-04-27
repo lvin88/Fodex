@@ -6,8 +6,7 @@
        Kapsam: Bu klasörün altındaki TÜM .csproj dosyaları.
        ================================================================ -->
 
-  <PropertyGroup Label="Target Framework & Language">
-    <TargetFramework>net10.0</TargetFramework>
+  <PropertyGroup Label="Language &amp; Common Settings">
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -21,8 +20,13 @@
     <!-- .NET SDK analyzers — kod kalitesi önerileri -->
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <!-- Dokümantasyon yorumlarının eksikliğini warning yapma -->
-    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <!-- IDE0005 ve diğer code-style analyzer'larının build sırasında çalışabilmesi için gerekli.
+         XML doc generate ediyoruz ama eksik doc warning'lerini (CS1591) NoWarn'a aldık. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- NoWarn:
+         CS1591 - missing XML doc on public member (we document selectively, not for every member)
+         CA1716 - identifier matches VB keyword ('Error' is industry convention in Result pattern) -->
+    <NoWarn>$(NoWarn);CS1591;CA1716</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Label="Build Output">
