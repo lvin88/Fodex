@@ -1,0 +1,28 @@
+<Solution>
+
+  <!-- Solution Items: Config dosyalarına Rider'dan hızlı erişim -->
+  <Folder Name="/solution-items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+
+  <!-- Production Source Code -->
+  <Folder Name="/src/" />
+  <Folder Name="/src/ApiGateway/" />
+  <Folder Name="/src/Host/" />
+  <Folder Name="/src/Common/" />
+  <Folder Name="/src/Modules/" />
+
+  <!-- Tests -->
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/ArchitectureTests/" />
+  <Folder Name="/tests/UnitTests/" />
+  <Folder Name="/tests/IntegrationTests/" />
+  <Folder Name="/tests/FunctionalTests/" />
+
+</Solution>

@@ -1,0 +1,56 @@
+<Project>
+
+  <!-- ================================================================
+       Ortak Temel Ayarlar (Tüm Projeler İçin)
+       Bu dosya: MSBuild tarafından OTOMATIK yüklenir.
+       Kapsam: Bu klasörün altındaki TÜM .csproj dosyaları.
+       ================================================================ -->
+
+  <PropertyGroup Label="Target Framework & Language">
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Code Quality">
+    <!-- Warning'leri error olarak say — disiplinli kod için şart -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- Bazı nuisance warning'leri error olmaktan çıkar -->
+    <WarningsNotAsErrors>NU1901;NU1902;NU1903;NU1904</WarningsNotAsErrors>
+    <!-- .NET SDK analyzers — kod kalitesi önerileri -->
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <!-- Dokümantasyon yorumlarının eksikliğini warning yapma -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Build Output">
+    <!-- Deterministic build — aynı kaynak kod = aynı binary (CI için ideal) -->
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true' OR '$(TF_BUILD)' == 'true'">true</ContinuousIntegrationBuild>
+    <!-- Debug sembolleri binary'e göm (deploy kolaylığı) -->
+    <DebugType>embedded</DebugType>
+    <!-- Implicit namespace import sistemini aç -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Project Metadata">
+    <Company>Fodex</Company>
+    <Product>Fodex - Field Operations and Distribution Exchange</Product>
+    <Copyright>Copyright © $([System.DateTime]::UtcNow.Year) Fodex</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Repository Info">
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/lvin88/Fodex</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet Central Package Management">
+    <!-- Directory.Packages.props ile merkezi paket yönetimi açık -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+
+</Project>

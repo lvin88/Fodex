@@ -1,0 +1,181 @@
+# ================================================================
+# Fodex - Git Attributes
+# Line ending normalizasyonu, binary file handling
+# ================================================================
+
+# Varsayılan: Git otomatik algılayıp metin dosyalarını LF'e normalize etsin
+* text=auto eol=lf
+
+# ================================================================
+# SOURCE CODE - LF (Unix style) ZORUNLU
+# Mac + Linux + Windows karışık takımda tutarlılık için
+# ================================================================
+
+# C# ve ilgili
+*.cs           text eol=lf diff=csharp
+*.cshtml       text eol=lf
+*.razor        text eol=lf
+*.vb           text eol=lf
+
+# MSBuild / Project files
+*.csproj       text eol=lf
+*.vbproj       text eol=lf
+*.fsproj       text eol=lf
+*.sln          text eol=lf
+*.props        text eol=lf
+*.targets      text eol=lf
+
+# Config / Data
+*.json         text eol=lf
+*.xml          text eol=lf
+*.yml          text eol=lf
+*.yaml         text eol=lf
+*.toml         text eol=lf
+*.config       text eol=lf
+
+# Docs
+*.md           text eol=lf
+*.txt          text eol=lf
+LICENSE        text eol=lf
+README         text eol=lf
+
+# Web
+*.html         text eol=lf
+*.htm          text eol=lf
+*.css          text eol=lf
+*.scss         text eol=lf
+*.js           text eol=lf
+*.jsx          text eol=lf
+*.ts           text eol=lf
+*.tsx          text eol=lf
+
+# SQL / Database
+*.sql          text eol=lf
+*.ddl          text eol=lf
+*.dml          text eol=lf
+
+# Docker / Kubernetes / DevOps
+Dockerfile             text eol=lf
+Dockerfile.*           text eol=lf
+*.dockerfile           text eol=lf
+.dockerignore          text eol=lf
+docker-compose*.yml    text eol=lf
+*.yaml                 text eol=lf
+
+# CI/CD
+*.yml          text eol=lf
+Jenkinsfile    text eol=lf
+
+# Editor / Project configs
+.editorconfig     text eol=lf
+.gitignore        text eol=lf
+.gitattributes    text eol=lf
+*.ruleset         text eol=lf
+*.DotSettings     text eol=lf
+
+# ================================================================
+# SHELL SCRIPTS - LF ZORUNLU (Unix'te çalışması için)
+# Windows'ta kaydedilse bile LF kalacak
+# ================================================================
+*.sh           text eol=lf
+*.bash         text eol=lf
+*.zsh          text eol=lf
+
+# ================================================================
+# WINDOWS SCRIPTS - CRLF ZORUNLU
+# Bu dosyalar Windows'ta çalışacağı için CRLF olmalı
+# ================================================================
+*.bat          text eol=crlf
+*.cmd          text eol=crlf
+*.ps1          text eol=crlf
+*.psm1         text eol=crlf
+
+# ================================================================
+# BINARY FILES - Git bunlara DOKUNMASIN
+# Merge/diff yapmaya çalışmasın
+# ================================================================
+
+# Görseller
+*.png          binary
+*.jpg          binary
+*.jpeg         binary
+*.gif          binary
+*.ico          binary
+*.bmp          binary
+*.webp         binary
+*.svg          text eol=lf      # SVG aslında XML, text olarak daha iyi
+
+# Documents
+*.pdf          binary
+*.docx         binary
+*.xlsx         binary
+*.pptx         binary
+
+# Archives
+*.zip          binary
+*.tar          binary
+*.tar.gz       binary
+*.tgz          binary
+*.rar          binary
+*.7z           binary
+
+# Fonts
+*.woff         binary
+*.woff2        binary
+*.ttf          binary
+*.otf          binary
+*.eot          binary
+
+# .NET binaries
+*.dll          binary
+*.exe          binary
+*.pdb          binary
+*.nupkg        binary
+*.snupkg       binary
+
+# Media
+*.mp3          binary
+*.mp4          binary
+*.mov          binary
+*.avi          binary
+
+# Certificates / Keys (gerçekte commit edilmemeli ama güvenlik için)
+*.pfx          binary
+*.p12          binary
+*.cer          binary
+*.crt          binary
+*.key          binary
+
+# Database
+*.db           binary
+*.sqlite       binary
+*.mdf          binary
+*.ldf          binary
+
+# ================================================================
+# LINGUIST - GitHub dil istatistikleri için
+# Bazı klasörler GitHub "Languages" bar'ında sayılmasın
+# ================================================================
+
+# Vendor code GitHub istatistiklerinde görünmesin
+docs/**           linguist-documentation
+deploy/**         linguist-generated
+**/*.generated.cs linguist-generated=true
+**/Migrations/**  linguist-generated=true
+
+# Docker/K8s config'i "language" olarak sayma
+deploy/docker/**  linguist-vendored
+deploy/k8s/**     linguist-vendored
+
+# ================================================================
+# MERGE STRATEGY
+# Belirli dosyalarda merge conflict otomatik çözülsün
+# ================================================================
+
+# Lock dosyaları — merge'de son gelen kazansın
+package-lock.json   merge=ours
+yarn.lock           merge=ours
+
+# Bu arada: .sln dosyası üzerinde merge conflict olabilir
+# ama "union" stratejisi tehlikeli — manuel çözmeyi tercih ederiz
+# *.sln            merge=union   ← KAPATIK

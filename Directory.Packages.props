@@ -1,0 +1,71 @@
+<Project>
+
+  <!-- ================================================================
+       Central Package Management (CPM)
+       Tüm NuGet paket sürümleri tek bu dosyada yönetilir.
+       Hiçbir .csproj içinde Version="..." YAZILMAYACAK.
+       
+       Nasıl kullanılır:
+       1. Yeni paket ekleneceği zaman önce buraya <PackageVersion /> ile eklenir.
+       2. Sonra ilgili .csproj'de <PackageReference Include="..." /> yazılır (Version'suz).
+       
+       Gruplama: Paketleri kullanım amacına göre grupluyoruz (okunabilirlik).
+       ================================================================ -->
+
+  <ItemGroup Label="Microsoft Extensions (Logging, DI, Config, Hosting)">
+    <!-- Modüller eklendikçe buraya gelecek -->
+  </ItemGroup>
+
+  <ItemGroup Label="ASP.NET Core">
+    <!-- API Host oluşturulduğunda buraya gelecek -->
+  </ItemGroup>
+
+  <ItemGroup Label="Entity Framework Core">
+    <!-- İlk modül eklendiğinde buraya gelecek (Npgsql.EntityFrameworkCore.PostgreSQL) -->
+  </ItemGroup>
+
+  <ItemGroup Label="Mediator / CQRS">
+    <!-- Mediator seçimi yapıldığında buraya gelecek (MediatR / Wolverine / Custom) -->
+  </ItemGroup>
+
+  <ItemGroup Label="Validation">
+    <!-- FluentValidation -->
+  </ItemGroup>
+
+  <ItemGroup Label="Authentication / Authorization">
+    <!-- OpenIddict vs. seçimi yapıldığında -->
+  </ItemGroup>
+
+  <ItemGroup Label="Messaging / Event Bus">
+    <!-- MassTransit + RabbitMQ veya Wolverine -->
+  </ItemGroup>
+
+  <ItemGroup Label="Caching / Redis">
+    <!-- StackExchange.Redis / Microsoft.Extensions.Caching.StackExchangeRedis -->
+  </ItemGroup>
+
+  <ItemGroup Label="Logging / Observability">
+    <!-- Serilog / OpenTelemetry -->
+  </ItemGroup>
+
+  <ItemGroup Label="API Gateway">
+    <!-- YARP -->
+  </ItemGroup>
+
+  <ItemGroup Label="Testing">
+    <!-- xUnit, FluentAssertions, NSubstitute, Testcontainers, NetArchTest -->
+  </ItemGroup>
+
+  <ItemGroup Label="Utilities">
+    <!-- Dapper (performance-critical queries), vs -->
+  </ItemGroup>
+
+  <!-- ================================================================
+       Global Package References
+       Tüm projelere otomatik eklenmesini istediğimiz analyzer'lar vb.
+       ================================================================ -->
+  <ItemGroup Label="Global Analyzers">
+    <!-- Ör: <GlobalPackageReference Include="Roslynator.Analyzers" /> -->
+  </ItemGroup>
+
+</Project>

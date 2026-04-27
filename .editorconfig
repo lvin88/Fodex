@@ -1,0 +1,261 @@
+# ================================================================
+# EditorConfig - Fodex
+# https://editorconfig.org
+# C# / .NET 10 için profesyonel standartlar
+# ================================================================
+
+# En üst seviye .editorconfig — alt klasörlerde override yoksa bu geçerli
+root = true
+
+# ================================================================
+# Tüm dosyalar için genel kurallar
+# ================================================================
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 140
+
+# ================================================================
+# Dosya tiplerine göre özel ayarlar
+# ================================================================
+
+# XML-based files (csproj, props, targets)
+[*.{csproj,props,targets,xml,config}]
+indent_size = 2
+
+# JSON / YAML / MD — 2 space standard
+[*.{json,yml,yaml,md}]
+indent_size = 2
+
+# Shell scripts
+[*.sh]
+end_of_line = lf
+
+# Windows batch (eğer olursa)
+[*.{cmd,bat}]
+end_of_line = crlf
+
+# ================================================================
+# C# Kod Stili (asıl iş burada)
+# ================================================================
+[*.cs]
+
+# File header (opsiyonel, şimdilik kapalı)
+# file_header_template = Copyright © Fodex
+
+#### Using direktifleri ####
+# System.* using'leri her zaman önce gelsin
+dotnet_sort_system_directives_first = true
+# Using grupları arasında boş satır
+dotnet_separate_import_directive_groups = true
+# using'ler namespace dışında (dosya başında) olsun — geleneksel, Rider default
+csharp_using_directive_placement = outside_namespace:warning
+
+#### Dil Özellikleri — C# 14 modernliği zorla ####
+
+# File-scoped namespace zorunlu (modern syntax)
+# namespace Fodex.Modules.Sales; ← bu
+# namespace Fodex.Modules.Sales { } ← bu değil
+csharp_style_namespace_declarations = file_scoped:error
+
+# Primary constructor öneriliyor (C# 12+)
+csharp_style_prefer_primary_constructors = true:suggestion
+
+# Top-level statements (Program.cs'de Main() yerine direkt kod)
+csharp_style_prefer_top_level_statements = true:suggestion
+
+# Pattern matching tercih et
+csharp_style_prefer_pattern_matching = true:suggestion
+csharp_style_prefer_switch_expression = true:suggestion
+csharp_style_prefer_not_pattern = true:suggestion
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+
+# Expression-bodied members (arrow function)
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_constructors = false:suggestion
+csharp_style_expression_bodied_operators = when_on_single_line:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+csharp_style_expression_bodied_indexers = true:suggestion
+csharp_style_expression_bodied_accessors = true:suggestion
+csharp_style_expression_bodied_lambdas = true:suggestion
+csharp_style_expression_bodied_local_functions = when_on_single_line:suggestion
+
+# 'var' kullanımı
+csharp_style_var_for_built_in_types = false:suggestion        # int x = 5; (var değil)
+csharp_style_var_when_type_is_apparent = true:suggestion      # var x = new Customer();
+csharp_style_var_elsewhere = true:suggestion                   # belirsiz durumlarda var
+
+# null check'ler
+csharp_style_throw_expression = true:suggestion
+csharp_style_conditional_delegate_call = true:suggestion
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+
+# readonly alan zorunlu (mutasyon kontrolü)
+dotnet_style_readonly_field = true:warning
+
+# Object initializer kullan
+dotnet_style_object_initializer = true:suggestion
+dotnet_style_collection_initializer = true:suggestion
+
+# 'this.' prefix kullanma
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_property = false:warning
+dotnet_style_qualification_for_method = false:warning
+dotnet_style_qualification_for_event = false:warning
+
+# Predefined type kullan (string, int vs Int32, String)
+dotnet_style_predefined_type_for_locals_parameters_members = true:warning
+dotnet_style_predefined_type_for_member_access = true:warning
+
+# Accessibility modifier her zaman yazılsın (public/private explicit)
+dotnet_style_require_accessibility_modifiers = always:warning
+
+#### Code Block Stili ####
+
+# Süslü parantez her zaman kullanılsın (tek satırlık if'lerde bile)
+csharp_prefer_braces = true:warning
+
+# Using statement tercih et (using (var x = ...))
+csharp_prefer_simple_using_statement = true:suggestion
+
+# Null check'lerde 'is null' tercih et
+csharp_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+
+#### Yeni Satır Kuralları (okunabilirlik için kritik) ####
+
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
+
+#### Girinti Kuralları ####
+
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_labels = flush_left
+csharp_indent_block_contents = true
+csharp_indent_braces = false
+csharp_indent_case_contents_when_block = false
+
+#### Boşluk Kuralları ####
+
+csharp_space_after_cast = false
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+csharp_space_between_parentheses = false
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_around_binary_operators = before_and_after
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+
+#### Wrap Kuralları ####
+
+csharp_preserve_single_line_statements = false
+csharp_preserve_single_line_blocks = true
+
+# ================================================================
+# Naming Rules (İsimlendirme — çok kritik)
+# ================================================================
+
+# Semboller: Interface'ler 'I' ile başlasın
+dotnet_naming_rule.interfaces_should_be_prefixed_with_i.severity = error
+dotnet_naming_rule.interfaces_should_be_prefixed_with_i.symbols = interfaces
+dotnet_naming_rule.interfaces_should_be_prefixed_with_i.style = prefix_i_style
+
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+dotnet_naming_symbols.interfaces.applicable_accessibilities = *
+
+dotnet_naming_style.prefix_i_style.required_prefix = I
+dotnet_naming_style.prefix_i_style.capitalization = pascal_case
+
+# Semboller: Private field'lar '_' ile başlasın (_fieldName)
+dotnet_naming_rule.private_fields_should_start_with_underscore.severity = warning
+dotnet_naming_rule.private_fields_should_start_with_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_should_start_with_underscore.style = underscore_camel_case
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_symbols.private_fields.required_modifiers = readonly,
+
+dotnet_naming_style.underscore_camel_case.required_prefix = _
+dotnet_naming_style.underscore_camel_case.capitalization = camel_case
+
+# Semboller: Constants UPPER_CASE veya PascalCase
+dotnet_naming_rule.constants_should_be_pascal_case.severity = warning
+dotnet_naming_rule.constants_should_be_pascal_case.symbols = constants
+dotnet_naming_rule.constants_should_be_pascal_case.style = pascal_case_style
+
+dotnet_naming_symbols.constants.applicable_kinds = field
+dotnet_naming_symbols.constants.required_modifiers = const
+
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# Tüm public member'lar PascalCase
+dotnet_naming_rule.public_members_should_be_pascal_case.severity = warning
+dotnet_naming_rule.public_members_should_be_pascal_case.symbols = public_members
+dotnet_naming_rule.public_members_should_be_pascal_case.style = pascal_case_style
+
+dotnet_naming_symbols.public_members.applicable_kinds = property,method,field,event,delegate
+dotnet_naming_symbols.public_members.applicable_accessibilities = public,internal,protected,protected_internal
+
+# Parametreler ve local'ler camelCase
+dotnet_naming_rule.parameters_should_be_camel_case.severity = warning
+dotnet_naming_rule.parameters_should_be_camel_case.symbols = parameters_and_locals
+dotnet_naming_rule.parameters_should_be_camel_case.style = camel_case_style
+
+dotnet_naming_symbols.parameters_and_locals.applicable_kinds = parameter,local
+
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+
+# Async method'lar 'Async' ile bitsin
+dotnet_naming_rule.async_methods_should_end_with_async.severity = warning
+dotnet_naming_rule.async_methods_should_end_with_async.symbols = async_methods
+dotnet_naming_rule.async_methods_should_end_with_async.style = end_in_async
+
+dotnet_naming_symbols.async_methods.applicable_kinds = method
+dotnet_naming_symbols.async_methods.required_modifiers = async
+
+dotnet_naming_style.end_in_async.required_suffix = Async
+dotnet_naming_style.end_in_async.capitalization = pascal_case
+
+# ================================================================
+# Analyzer Severity'leri (Önemli!)
+# ================================================================
+
+# Bazı önemli kuralları error yapalım
+dotnet_diagnostic.CA1063.severity = warning   # IDisposable doğru implement
+dotnet_diagnostic.CA1508.severity = warning   # Dead code
+dotnet_diagnostic.CA1816.severity = warning   # Call GC.SuppressFinalize
+dotnet_diagnostic.CA2007.severity = none      # ConfigureAwait(false) — ASP.NET Core'da gerek yok
+dotnet_diagnostic.CA2016.severity = warning   # CancellationToken forward
+dotnet_diagnostic.CA2254.severity = warning   # Template should be static (logging)
+
+# Async void yasak
+dotnet_diagnostic.VSTHRD100.severity = error  # async void
+
+# IDE kuralları
+dotnet_diagnostic.IDE0005.severity = warning  # Gereksiz using'ler silinsin
+dotnet_diagnostic.IDE0055.severity = warning  # Format ihlali
+
+# ================================================================
+# Test projeleri için gevşetmeler
+# ================================================================
+[**/tests/**/*.cs]
+# Testlerde public method olması gerek, CS1591 yok
+dotnet_diagnostic.CS1591.severity = none
+# Test method isimleri daha serbest olabilir (MethodName_Should_DoSomething pattern)
+dotnet_diagnostic.CA1707.severity = none      # Underscore in method name
+# Test'lerde async Task yerine async void lazım olabilir nadir
+dotnet_diagnostic.VSTHRD100.severity = warning
