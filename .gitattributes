@@ -103,7 +103,8 @@ Jenkinsfile    text eol=lf
 *.ico          binary
 *.bmp          binary
 *.webp         binary
-*.svg          text eol=lf      # SVG aslında XML, text olarak daha iyi
+# SVG aslında XML, text olarak daha iyi
+*.svg          text eol=lf
 
 # Documents
 *.pdf          binary
