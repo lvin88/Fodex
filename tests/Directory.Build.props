@@ -1,0 +1,10 @@
+<Project>
+  <!-- Inherit all settings from the root Directory.Build.props -->
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+  <PropertyGroup Label="Test Project Overrides">
+    <!-- CA1707: test methods intentionally use underscore naming (MethodName_Should_DoX) -->
+    <NoWarn>$(NoWarn);CA1707</NoWarn>
+  </PropertyGroup>
+
+</Project>

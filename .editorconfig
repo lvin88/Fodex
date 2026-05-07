@@ -51,7 +51,7 @@ end_of_line = crlf
 # System.* using'leri her zaman önce gelsin
 dotnet_sort_system_directives_first = true
 # Using grupları arasında boş satır
-dotnet_separate_import_directive_groups = true
+dotnet_separate_import_directive_groups = false
 # using'ler namespace dışında (dosya başında) olsun — geleneksel, Rider default
 csharp_using_directive_placement = outside_namespace:warning
 
@@ -252,7 +252,7 @@ dotnet_diagnostic.IDE0055.severity = warning  # Format ihlali
 # ================================================================
 # Test projeleri için gevşetmeler
 # ================================================================
-[**/tests/**/*.cs]
+[tests/**/*.cs]
 # Testlerde public method olması gerek, CS1591 yok
 dotnet_diagnostic.CS1591.severity = none
 # Test method isimleri daha serbest olabilir (MethodName_Should_DoSomething pattern)

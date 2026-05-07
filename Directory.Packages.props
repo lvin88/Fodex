@@ -4,11 +4,11 @@
        Central Package Management (CPM)
        Tüm NuGet paket sürümleri tek bu dosyada yönetilir.
        Hiçbir .csproj içinde Version="..." YAZILMAYACAK.
-       
+
        Nasıl kullanılır:
        1. Yeni paket ekleneceği zaman önce buraya <PackageVersion /> ile eklenir.
        2. Sonra ilgili .csproj'de <PackageReference Include="..." /> yazılır (Version'suz).
-       
+
        Gruplama: Paketleri kullanım amacına göre grupluyoruz (okunabilirlik).
        ================================================================ -->
 
@@ -25,11 +25,17 @@
   </ItemGroup>
 
   <ItemGroup Label="Mediator / CQRS">
-    <!-- Mediator seçimi yapıldığında buraya gelecek (MediatR / Wolverine / Custom) -->
+    <!-- Mediator (martinothamar) - source-generator based, MediatR-compatible API,
+         MIT license. Chosen over MediatR (commercial as of v14) and Wolverine
+         (different paradigm). 3-4x faster than MediatR via source generation. -->
+    <PackageVersion Include="Mediator.Abstractions" Version="3.0.2" />
+    <PackageVersion Include="Mediator.SourceGenerator" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup Label="Validation">
-    <!-- FluentValidation -->
+    <!-- FluentValidation - validation rules with fluent API.
+         Open source (Apache 2.0), maintained, industry standard. -->
+    <PackageVersion Include="FluentValidation" Version="12.1.1" />
   </ItemGroup>
 
   <ItemGroup Label="Authentication / Authorization">
@@ -53,7 +59,21 @@
   </ItemGroup>
 
   <ItemGroup Label="Testing">
-    <!-- xUnit, FluentAssertions, NSubstitute, Testcontainers, NetArchTest -->
+    <!-- xUnit - test framework, .NET 10 compatible -->
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.0" />
+
+    <!-- Test SDK - .NET CLI test runner integration -->
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+
+    <!-- Code coverage collector -->
+    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
+
+    <!-- Architecture rule testing -->
+    <PackageVersion Include="NetArchTest.Rules" Version="1.3.2" />
+
+    <!-- Readable assertions -->
+    <PackageVersion Include="FluentAssertions" Version="6.12.2" />
   </ItemGroup>
 
   <ItemGroup Label="Utilities">

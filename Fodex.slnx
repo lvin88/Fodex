@@ -16,13 +16,17 @@
   <Folder Name="/src/ApiGateway/" />
   <Folder Name="/src/Host/" />
   <Folder Name="/src/Common/">
+    <Project Path="src/Common/Fodex.Common.Application/Fodex.Common.Application.csproj" />
     <Project Path="src/Common/Fodex.Common.Domain/Fodex.Common.Domain.csproj" />
+    <Project Path="src/Common/Fodex.Common.Infrastructure/Fodex.Common.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/src/Modules/" />
 
   <!-- Tests -->
   <Folder Name="/tests/" />
-  <Folder Name="/tests/ArchitectureTests/" />
+  <Folder Name="/tests/ArchitectureTests/">
+    <Project Path="tests/ArchitectureTests/Fodex.ArchitectureTests/Fodex.ArchitectureTests.csproj" />
+  </Folder>
   <Folder Name="/tests/UnitTests/" />
   <Folder Name="/tests/IntegrationTests/" />
   <Folder Name="/tests/FunctionalTests/" />

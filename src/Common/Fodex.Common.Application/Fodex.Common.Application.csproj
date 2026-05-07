@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Fodex.Common.Application</RootNamespace>
+    <AssemblyName>Fodex.Common.Application</AssemblyName>
+    <Description>Fodex - Common application primitives (CQRS, pipeline behaviors, domain event adapter, abstractions for Clock and UnitOfWork)</Description>
+  </PropertyGroup>
+
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\Fodex.Common.Domain\Fodex.Common.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Label="Package References">
+    <!-- Mediator (martinothamar) - abstractions only.
+         Source generator runs only in the host project (Fodex.Api). -->
+    <PackageReference Include="Mediator.Abstractions" />
+
+    <!-- FluentValidation - validation rules with fluent API -->
+    <PackageReference Include="FluentValidation" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Behaviors\" />
+  </ItemGroup>
+
+</Project>

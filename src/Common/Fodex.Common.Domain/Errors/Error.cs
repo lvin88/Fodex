@@ -10,7 +10,7 @@ namespace Fodex.Common.Domain.Errors;
 /// </param>
 /// <param name="Description">Human-readable description (English by default).</param>
 /// <param name="Type">Error category for transport mapping.</param>
-public sealed record Error(string Code, string Description, ErrorType Type)
+public record Error(string Code, string Description, ErrorType Type)
 {
     /// <summary>
     /// Sentinel value representing the absence of an error.

@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Fodex.ArchitectureTests</RootNamespace>
+    <AssemblyName>Fodex.ArchitectureTests</AssemblyName>
+    <Description>Architecture tests enforcing structural rules across Fodex modules.</Description>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\..\..\src\Common\Fodex.Common.Domain\Fodex.Common.Domain.csproj" />
+    <ProjectReference Include="..\..\..\src\Common\Fodex.Common.Application\Fodex.Common.Application.csproj" />
+    <ProjectReference Include="..\..\..\src\Common\Fodex.Common.Infrastructure\Fodex.Common.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Label="Test Framework Packages">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="coverlet.collector" />
+  </ItemGroup>
+
+  <ItemGroup Label="Architecture and Assertion Packages">
+    <PackageReference Include="NetArchTest.Rules" />
+    <PackageReference Include="FluentAssertions" />
+  </ItemGroup>
+
+</Project>
