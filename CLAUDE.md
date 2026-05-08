@@ -165,7 +165,7 @@ them.
 ### 4.1 SourceGenerator Placement
 
 - **`Mediator.SourceGenerator`** belongs **only in the host project**
-  (`Fodex.Api`). It scans the compilation, finds handlers, and
+  (`src/Host/Fodex.Api/`). It scans the compilation, finds handlers, and
   generates dispatch code. If it runs in a library project, it raises
   `MSG0005` for every `INotification`/`IRequest` whose handler lives
   in a different assembly.

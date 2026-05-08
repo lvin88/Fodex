@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Fodex.Modules.Identity.Domain</RootNamespace>
+    <AssemblyName>Fodex.Modules.Identity.Domain</AssemblyName>
+    <Description>Fodex Identity module — domain layer (aggregates, value objects, domain events, repository interfaces)</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Fodex.Common.Domain\Fodex.Common.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

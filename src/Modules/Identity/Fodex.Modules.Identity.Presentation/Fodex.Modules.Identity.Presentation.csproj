@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Fodex.Modules.Identity.Presentation</RootNamespace>
+    <AssemblyName>Fodex.Modules.Identity.Presentation</AssemblyName>
+    <Description>Fodex Identity module — presentation layer (minimal API endpoints)</Description>
+  </PropertyGroup>
+
+  <ItemGroup Label="Framework References">
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\Fodex.Modules.Identity.Application\Fodex.Modules.Identity.Application.csproj" />
+  </ItemGroup>
+
+</Project>

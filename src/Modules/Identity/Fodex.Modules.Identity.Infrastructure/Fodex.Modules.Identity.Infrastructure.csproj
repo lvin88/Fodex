@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Fodex.Modules.Identity.Infrastructure</RootNamespace>
+    <AssemblyName>Fodex.Modules.Identity.Infrastructure</AssemblyName>
+    <Description>Fodex Identity module — infrastructure layer (EF Core, repositories, DI registration)</Description>
+  </PropertyGroup>
+
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\Fodex.Modules.Identity.Application\Fodex.Modules.Identity.Application.csproj" />
+    <ProjectReference Include="..\Fodex.Modules.Identity.Domain\Fodex.Modules.Identity.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Common\Fodex.Common.Infrastructure\Fodex.Common.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -21,6 +21,13 @@
     <Project Path="src/Common/Fodex.Common.Infrastructure/Fodex.Common.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Identity/">
+    <Project Path="src/Modules/Identity/Fodex.Modules.Identity.Application/Fodex.Modules.Identity.Application.csproj" />
+    <Project Path="src/Modules/Identity/Fodex.Modules.Identity.Domain/Fodex.Modules.Identity.Domain.csproj" />
+    <Project Path="src/Modules/Identity/Fodex.Modules.Identity.Infrastructure/Fodex.Modules.Identity.Infrastructure.csproj" />
+    <Project Path="src/Modules/Identity/Fodex.Modules.Identity.IntegrationEvents/Fodex.Modules.Identity.IntegrationEvents.csproj" />
+    <Project Path="src/Modules/Identity/Fodex.Modules.Identity.Presentation/Fodex.Modules.Identity.Presentation.csproj" />
+  </Folder>
 
   <!-- Tests -->
   <Folder Name="/tests/" />

@@ -29,5 +29,11 @@ public abstract record DomainEventBase : IDomainEvent
     /// UTC timestamp captured at construction time, i.e., when the aggregate
     /// state change occurred (not when the event is dispatched).
     /// </summary>
+    /// <remarks>
+    /// Intentional exception to the IClock rule: domain events are pure data with no
+    /// dependencies. Threading IClock through every aggregate method that raises events
+    /// would couple Domain to the service layer. Use <c>with { OccurredOnUtc = ... }</c>
+    /// in tests that need to control the timestamp.
+    /// </remarks>
     public DateTime OccurredOnUtc { get; init; } = DateTime.UtcNow;
 }

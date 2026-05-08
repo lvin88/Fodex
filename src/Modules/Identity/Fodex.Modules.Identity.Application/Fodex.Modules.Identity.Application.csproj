@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Fodex.Modules.Identity.Application</RootNamespace>
+    <AssemblyName>Fodex.Modules.Identity.Application</AssemblyName>
+    <Description>Fodex Identity module — application layer (commands, queries, handlers, validators)</Description>
+  </PropertyGroup>
+
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\Fodex.Modules.Identity.Domain\Fodex.Modules.Identity.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Common\Fodex.Common.Application\Fodex.Common.Application.csproj" />
+  </ItemGroup>
+
+</Project>

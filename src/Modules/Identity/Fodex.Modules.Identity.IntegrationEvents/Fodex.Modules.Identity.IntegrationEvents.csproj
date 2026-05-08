@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Fodex.Modules.Identity.IntegrationEvents</RootNamespace>
+    <AssemblyName>Fodex.Modules.Identity.IntegrationEvents</AssemblyName>
+    <Description>Fodex Identity module — public integration event contracts (primitive types only, consumed by other modules)</Description>
+  </PropertyGroup>
+
+  <ItemGroup Label="Project References">
+    <!-- IIntegrationEvent lives in Common.Application -->
+    <ProjectReference Include="..\..\..\Common\Fodex.Common.Application\Fodex.Common.Application.csproj" />
+  </ItemGroup>
+
+</Project>

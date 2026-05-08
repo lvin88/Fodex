@@ -14,9 +14,8 @@ public abstract class Entity<TId> : Entity, IEquatable<Entity<TId>>
 {
     /// <summary>
     /// The unique identifier of this entity.
-    /// Set by the constructor and never changes for the entity's lifetime.
     /// </summary>
-    private TId? Id { get; }
+    public TId Id { get; private set; } = default!;
 
     /// <summary>
     /// Protected default constructor for ORMs (e.g., EF Core) and serializers.
