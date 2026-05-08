@@ -60,22 +60,22 @@ public sealed class User : AggregateRoot<UserId>
     {
         if (string.IsNullOrWhiteSpace(number))
         {
-            return Result.Failure<User>(UserErrors.NumberEmpty);
+            return Result.Failure<User>(UserErrors.NumberEmpty());
         }
 
         if (number.Trim().Length > NumberMaxLength)
         {
-            return Result.Failure<User>(UserErrors.NumberTooLong);
+            return Result.Failure<User>(UserErrors.NumberTooLong());
         }
 
         if (string.IsNullOrWhiteSpace(passwordHash))
         {
-            return Result.Failure<User>(UserErrors.PasswordEmpty);
+            return Result.Failure<User>(UserErrors.PasswordEmpty());
         }
 
         if (passwordHash.Length > PasswordHashMaxLength)
         {
-            return Result.Failure<User>(UserErrors.PasswordHashTooLong);
+            return Result.Failure<User>(UserErrors.PasswordHashTooLong());
         }
 
         var user = new User(UserId.New(), number.Trim(), passwordHash, type, status);
@@ -89,7 +89,7 @@ public sealed class User : AggregateRoot<UserId>
     {
         if (Type != UserType.LocalUser)
         {
-            return Result.Failure(UserErrors.TypeMismatch);
+            return Result.Failure(UserErrors.TypeMismatch());
         }
 
         LocalUserId = localUserId;
@@ -100,7 +100,7 @@ public sealed class User : AggregateRoot<UserId>
     {
         if (string.IsNullOrWhiteSpace(newPasswordHash))
         {
-            return Result.Failure(UserErrors.PasswordEmpty);
+            return Result.Failure(UserErrors.PasswordEmpty());
         }
 
         PasswordHash = newPasswordHash;

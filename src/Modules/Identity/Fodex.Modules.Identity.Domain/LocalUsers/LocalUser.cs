@@ -46,32 +46,32 @@ public sealed class LocalUser : AggregateRoot<LocalUserId>
     {
         if (string.IsNullOrWhiteSpace(firstName))
         {
-            return Result.Failure<LocalUser>(LocalUserErrors.FirstNameEmpty);
+            return Result.Failure<LocalUser>(LocalUserErrors.FirstNameEmpty());
         }
 
         if (firstName.Trim().Length > NameMaxLength)
         {
-            return Result.Failure<LocalUser>(LocalUserErrors.FirstNameTooLong);
+            return Result.Failure<LocalUser>(LocalUserErrors.FirstNameTooLong());
         }
 
         if (string.IsNullOrWhiteSpace(lastName))
         {
-            return Result.Failure<LocalUser>(LocalUserErrors.LastNameEmpty);
+            return Result.Failure<LocalUser>(LocalUserErrors.LastNameEmpty());
         }
 
         if (lastName.Trim().Length > NameMaxLength)
         {
-            return Result.Failure<LocalUser>(LocalUserErrors.LastNameTooLong);
+            return Result.Failure<LocalUser>(LocalUserErrors.LastNameTooLong());
         }
 
         if (string.IsNullOrWhiteSpace(fatherName))
         {
-            return Result.Failure<LocalUser>(LocalUserErrors.FatherNameEmpty);
+            return Result.Failure<LocalUser>(LocalUserErrors.FatherNameEmpty());
         }
 
         if (fatherName.Trim().Length > NameMaxLength)
         {
-            return Result.Failure<LocalUser>(LocalUserErrors.FatherNameTooLong);
+            return Result.Failure<LocalUser>(LocalUserErrors.FatherNameTooLong());
         }
 
         var phoneResult = PhoneNumber.Create(phoneNumber);
@@ -104,32 +104,32 @@ public sealed class LocalUser : AggregateRoot<LocalUserId>
     {
         if (string.IsNullOrWhiteSpace(firstName))
         {
-            return Result.Failure(LocalUserErrors.FirstNameEmpty);
+            return Result.Failure(LocalUserErrors.FirstNameEmpty());
         }
 
         if (firstName.Trim().Length > NameMaxLength)
         {
-            return Result.Failure(LocalUserErrors.FirstNameTooLong);
+            return Result.Failure(LocalUserErrors.FirstNameTooLong());
         }
 
         if (string.IsNullOrWhiteSpace(lastName))
         {
-            return Result.Failure(LocalUserErrors.LastNameEmpty);
+            return Result.Failure(LocalUserErrors.LastNameEmpty());
         }
 
         if (lastName.Trim().Length > NameMaxLength)
         {
-            return Result.Failure(LocalUserErrors.LastNameTooLong);
+            return Result.Failure(LocalUserErrors.LastNameTooLong());
         }
 
         if (string.IsNullOrWhiteSpace(fatherName))
         {
-            return Result.Failure(LocalUserErrors.FatherNameEmpty);
+            return Result.Failure(LocalUserErrors.FatherNameEmpty());
         }
 
         if (fatherName.Trim().Length > NameMaxLength)
         {
-            return Result.Failure(LocalUserErrors.FatherNameTooLong);
+            return Result.Failure(LocalUserErrors.FatherNameTooLong());
         }
 
         var phoneResult = PhoneNumber.Create(phoneNumber);

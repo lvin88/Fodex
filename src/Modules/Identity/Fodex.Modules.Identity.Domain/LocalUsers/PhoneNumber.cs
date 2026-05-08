@@ -9,6 +9,7 @@ public sealed record PhoneNumber : IValueObject
 {
     public const int MaxLength = 20;
 
+    // ReSharper disable once InconsistentNaming
     private static readonly Regex _phoneRegex = new(
         @"^\+?[0-9\s\-\(\)]{7,20}$",
         RegexOptions.Compiled,
@@ -22,19 +23,19 @@ public sealed record PhoneNumber : IValueObject
     {
         if (string.IsNullOrWhiteSpace(input))
         {
-            return Result.Failure<PhoneNumber>(PhoneNumberErrors.Empty);
+            return Result.Failure<PhoneNumber>(PhoneNumberErrors.Empty());
         }
 
         var normalized = input.Trim();
 
         if (normalized.Length > MaxLength)
         {
-            return Result.Failure<PhoneNumber>(PhoneNumberErrors.TooLong);
+            return Result.Failure<PhoneNumber>(PhoneNumberErrors.TooLong());
         }
 
         if (!_phoneRegex.IsMatch(normalized))
         {
-            return Result.Failure<PhoneNumber>(PhoneNumberErrors.InvalidFormat);
+            return Result.Failure<PhoneNumber>(PhoneNumberErrors.InvalidFormat());
         }
 
         return new PhoneNumber(normalized);

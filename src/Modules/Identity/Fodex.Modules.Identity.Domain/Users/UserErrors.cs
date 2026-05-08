@@ -2,36 +2,36 @@ using Fodex.Common.Domain.Errors;
 
 namespace Fodex.Modules.Identity.Domain.Users;
 
-/// <summary>Error constants for the <see cref="User"/> aggregate.</summary>
+/// <summary>Error factory methods for the <see cref="User"/> aggregate.</summary>
 public static class UserErrors
 {
-    public static readonly Error NotFound =
-        Error.NotFound("User.NotFound", "User was not found.");
+    public static Error NotFound(UserId id) =>
+        Error.NotFound("User.NotFound", $"User '{id}' was not found.");
 
-    public static readonly Error InvalidCredentials =
+    public static Error InvalidCredentials() =>
         Error.Unauthorized("User.InvalidCredentials", "The provided credentials are invalid.");
 
-    public static readonly Error NumberAlreadyInUse =
-        Error.Conflict("User.NumberAlreadyInUse", "A user with this number already exists.");
+    public static Error NumberAlreadyInUse(string number) =>
+        Error.Conflict("User.NumberAlreadyInUse", $"A user with number '{number}' already exists.");
 
-    public static readonly Error NumberEmpty =
+    public static Error NumberEmpty() =>
         Error.Validation("User.NumberEmpty", "User number cannot be empty.");
 
-    public static readonly Error NumberTooLong =
+    public static Error NumberTooLong() =>
         Error.Validation("User.NumberTooLong", $"User number cannot exceed {User.NumberMaxLength} characters.");
 
-    public static readonly Error PasswordEmpty =
+    public static Error PasswordEmpty() =>
         Error.Validation("User.PasswordEmpty", "Password hash cannot be empty.");
 
-    public static readonly Error PasswordHashTooLong =
+    public static Error PasswordHashTooLong() =>
         Error.Validation("User.PasswordHashTooLong", $"Password hash cannot exceed {User.PasswordHashMaxLength} characters.");
 
-    public static readonly Error AccountInactive =
+    public static Error AccountInactive() =>
         Error.Forbidden("User.AccountInactive", "The account is inactive.");
 
-    public static readonly Error AccountSuspended =
+    public static Error AccountSuspended() =>
         Error.Forbidden("User.AccountSuspended", "The account is suspended.");
 
-    public static readonly Error TypeMismatch =
+    public static Error TypeMismatch() =>
         Error.Failure("User.TypeMismatch", "The profile type does not match the user type.");
 }

@@ -25,19 +25,19 @@ public sealed record Email : IValueObject
     {
         if (string.IsNullOrWhiteSpace(input))
         {
-            return Result.Failure<Email>(EmailErrors.Empty);
+            return Result.Failure<Email>(EmailErrors.Empty());
         }
 
         string normalized = input.Trim().ToLowerInvariant();
 
         if (normalized.Length > MaxLength)
         {
-            return Result.Failure<Email>(EmailErrors.TooLong);
+            return Result.Failure<Email>(EmailErrors.TooLong());
         }
 
         if (!EmailRegex.IsMatch(normalized))
         {
-            return Result.Failure<Email>(EmailErrors.InvalidFormat);
+            return Result.Failure<Email>(EmailErrors.InvalidFormat());
         }
 
         return new Email(normalized);
